@@ -3,7 +3,7 @@ class Api::HeroesController < ApplicationController
 
   # GET /heroes
   def index
-    @heroes = Hero.all.order(:name)
+    @heroes = Hero.search_by_name(params[:term]).sort_by_name
 
     render json: @heroes
   end
@@ -18,6 +18,7 @@ class Api::HeroesController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
+      #Onde esse api_hero_url foi declarado? 
       render json: @hero, status: :created, location: api_hero_url(@hero)
     else
       render json: @hero.errors, status: :unprocessable_content
