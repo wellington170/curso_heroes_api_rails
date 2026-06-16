@@ -7,15 +7,14 @@ module Authenticable
         @token ||=  request.headers['Authorization']
         unless valid_token?
             #Por mais que não pareça, trata-se de uma hash declarada aqui
-            render json: {errors: 'Vocẽ não está autorizado para acessaar essa rota'},
+            render json: {errors: 'Forneça um header authorization para se identificar'},
             status: :unauthorized
         end
 
     end
 
     def valid_token?
-        @token.present? && @token.split(' ').last == Rails.application.credentials.token
+        (@token.present? && @token.size >= 17)
     end
-
 
 end

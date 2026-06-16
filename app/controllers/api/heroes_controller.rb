@@ -6,7 +6,7 @@ class Api::HeroesController < ApplicationController
 
   # GET /heroes
   def index
-    @heroes = Hero.search_by_name(params[:term]).sort_by_name
+    @heroes = Hero.by_token(@token).search_by_name(params[:term]).sort_by_name
 
     render json: @heroes
   end
@@ -18,7 +18,7 @@ class Api::HeroesController < ApplicationController
 
   # POST /heroes
   def create
-    @hero = Hero.new(hero_params)
+    @hero = Hero.new(hero_params.to_h.merge!({token: @token}))
 
     if @hero.save
       #Onde esse api_hero_url foi declarado? 
