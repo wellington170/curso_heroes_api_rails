@@ -1,4 +1,7 @@
 class Api::HeroesController < ApplicationController
+  #Não deveria ser um require com o caminho da pasta?
+  include Authenticable
+  before_action :authenticate_with_token #, except: [:index, :show]
   before_action :set_hero, only: %i[ show update destroy ]
 
   # GET /heroes
