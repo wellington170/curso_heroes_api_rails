@@ -1,9 +1,12 @@
-class HeroesController < ApplicationController
+class Api::HeroesController < ApplicationController
+  #Não deveria ser um require com o caminho da pasta?
+  include Authenticable
+  before_action :authenticate_with_token #, except: [:index, :show]
   before_action :set_hero, only: %i[ show update destroy ]
 
   # GET /heroes
   def index
-    @heroes = Hero.all
+    @heroes = Hero.search_by_name(params[:term]).sort_by_name
 
     render json: @heroes
   end
@@ -18,7 +21,8 @@ class HeroesController < ApplicationController
     @hero = Hero.new(hero_params)
 
     if @hero.save
-      render json: @hero, status: :created, location: @hero
+      #Onde esse api_hero_url foi declarado? 
+      render json: @hero, status: :created, location: api_hero_url(@hero)
     else
       render json: @hero.errors, status: :unprocessable_content
     end
