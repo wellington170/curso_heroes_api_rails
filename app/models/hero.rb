@@ -1,5 +1,5 @@
 class Hero < ApplicationRecord
-  validates :name, :token, presence: true
+  validates :name, :power, :age, :city, :token, presence: true
 #scope método de consulta que retorna um ActiveRecord::Relation
   scope :by_token, -> (token) {where(token: token)}
   scope :sort_by_name, -> {order(:name)}

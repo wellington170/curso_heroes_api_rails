@@ -23,6 +23,7 @@ class Api::HeroesController < ApplicationController
     if @hero.save
       #Onde esse api_hero_url foi declarado? 
       render json: @hero, status: :created, location: api_hero_url(@hero)
+      #byebug
     else
       render json: @hero.errors, status: :unprocessable_content
     end
@@ -50,6 +51,6 @@ class Api::HeroesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hero_params
-      params.expect(hero: [ :name ])
+      params.expect(hero: [ :name, :age, :power, :city ])
     end
 end
