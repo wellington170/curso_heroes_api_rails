@@ -155,13 +155,17 @@
       "/home/wellington-pereira/Documentos/Estudos_ruby/Projetos/curso_heroes_api_rails/app/models/hero.rb": {
         "lines": [
           1,
-          1,
           null,
           1,
           1,
+          1,
           null,
           null,
-          1
+          2,
+          2,
+          null,
+          null,
+          2
         ]
       },
       "/home/wellington-pereira/Documentos/Estudos_ruby/Projetos/curso_heroes_api_rails/app/models/application_record.rb": {
@@ -172,6 +176,6 @@
         ]
       }
     },
-    "timestamp": 1781728387
+    "timestamp": 1781781386
   }
 }
