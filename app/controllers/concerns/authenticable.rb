@@ -14,7 +14,7 @@ module Authenticable
     end
 
     def valid_token?
-        (@token.present? && @token.size >= 17)
+        (@token.present? && @token.size >= 10)
     end
 
 end
