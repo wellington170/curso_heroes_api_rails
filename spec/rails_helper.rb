@@ -2,7 +2,12 @@
 
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do 
+  add_group 'Config', 'config'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Specs', 'spec'
+end
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
