@@ -6,7 +6,7 @@ class Api::HeroesController < ApplicationController
 
   # GET /heroes
   def index
-    @heroes = Hero.by_token(@token).search_by_name(params[:term]).sort_by_name
+    @heroes = Hero.by_token(@token).search_by_name(params[:name]).sort_by_name
 
     render json: @heroes
   end
