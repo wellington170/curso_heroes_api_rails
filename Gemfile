@@ -56,6 +56,8 @@ group :development, :test do
   gem "faker", "~> 3.8"
   
   gem "rspec-rails", "~> 8.0"
+
+  gem "factory_bot_rails", "~> 6.5"
   
   gem "spring-commands-rspec", "~> 1.0"
 end
@@ -64,6 +66,7 @@ group :test do
   gem "shoulda-matchers", "~> 8.0"
   gem "simplecov", "~> 0.22.0", require: false
 end
+
 
 
 
